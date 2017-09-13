@@ -19,7 +19,7 @@ var margin = {top: 20, right: 20, bottom: 30, left: 40},
 // set the ranges
 var x = d3.scaleBand()
           .range([0, width])
-          .padding(0.1);
+          .padding(0.1); //padding is the space made available between bars, made is 0.1 of the width of the space available for each band
 var y = d3.scaleLinear()
           .range([height, 0]);
           
@@ -47,7 +47,7 @@ d3.csv("sales.csv", function(error, data) {
   y.domain([0, d3.max(data, function(d) { return d.sales; })]);
 
   // append the rectangles for the bar chart
-  svg.selectAll(".bar")
+  svg.selectAll(".bar") // select based on the class name
       .data(data)
     .enter().append("rect")
       .attr("class", "bar")
